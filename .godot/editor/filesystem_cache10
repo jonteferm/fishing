@@ -1,0 +1,14 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1759995427
+icon.svg::CompressedTexture2D::3884049870797235752::1759398064::1759398074::1::::<><><>0<>0<>456667db677006588558ce3d8af8ed7b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+node_2d.gd::GDScript::2221718166383808955::1759994709::0::1::::<>Node2D<><>0<>0<><>::
+node_2d.tscn::PackedScene::999783945334657764::1759995427::0::1::::<><><>0<>0<><>::uid://6whmx5dqj8tj::::res://node_2d.gd<>uid://dkinot6014oe0::::res://assets/tiles/backgrounds/WaterAtlasWater.png<>uid://tcp5ts4ig765::::res://assets/tiles/backgrounds/WaterAtlas.png<>uid://c5wqnhb6ec48r::::res://assets/sprites/Boat.png
+waveSprite.gd::GDScript::8066256036405231090::1759680849::0::1::::<>Sprite2D<><>0<>0<><>::
+::res://assets/::1759845931
+::res://assets/sprites/::1759846410
+Boat.png::CompressedTexture2D::6924918044943727959::1759846393::1759846410::1::::<><><>0<>0<>479350ddfdac3f579758ff9e072aea62<>res://.godot/imported/Boat.png-d4598fa303ecb067a4caeca45b20b44e.ctex::
+::res://assets/tiles/::1759401352
+::res://assets/tiles/backgrounds/::1759999427
+WaterAtlas.png::CompressedTexture2D::1338682140418102796::1759835043::1759835082::1::::<><><>0<>0<>3404a625d57ad03a396d53f190ad9734<>res://.godot/imported/WaterAtlas.png-d26149f42cae82407cfdb8a5e12a72c3.ctex::
+WaterAtlasWater.png::CompressedTexture2D::7878480878517113921::1759823390::1759823405::1::::<><><>0<>0<>0c57f3f7d9273e0a6a8e4e646d0654f7<>res://.godot/imported/WaterAtlasWater.png-a0ee1e227c7fc35a4e8cc844632ddfe5.ctex::
+WaveAtlas.png::CompressedTexture2D::2568858459210552946::1759999200::1759999431::1::::<><><>0<>0<>80506d6666953c45c7eb4a1b167c7f0d<>res://.godot/imported/WaveAtlas.png-ec3410300b8eb23af19f1819ca81b24b.ctex::
