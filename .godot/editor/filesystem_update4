@@ -1,3 +1,12 @@
-res://node_2d.tscn
-res://node_2d.gd
+res://danmaku_2d.tscn
+res://danmaku_2d.gd
+res://enemy.gd
+res://enemy_bullets.gd
+res://bullet1.tscn
+res://enemy1.tscn
+res://bullet.gd
 res://character_body_2d.gd
+res://bullet_anticlock.gd
+res://bullet_clock.gd
+res://enemy_1.gd
+res://node_2d.tscn

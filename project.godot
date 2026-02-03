@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Fishing"
-run/main_scene="uid://oikkbux34b37"
+run/main_scene="uid://biihfqvy8cjs3"
 config/features=PackedStringArray("4.5", "Mobile")
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=768
+window/size/viewport_width=1536
+window/size/viewport_height=1152
+window/stretch/scale=1.5
+
+[dotnet]
+
+project/assembly_name="Fishing"
 
 [input]
 

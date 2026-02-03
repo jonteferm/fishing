@@ -31,3 +31,11 @@ func update_movement(delta):
 	
 	# Apply the velocity (and handle collisions if using CharacterBody2D)
 	move_and_slide()
+	
+#func _unhandled_input(input_event: InputEvent) -> void:
+	#if input_event.is_echo():
+		#return
+
+	#if input_event is InputEventMouseButton and input_event.is_pressed():
+		#if input_event.button_index == MOUSE_BUTTON_LEFT:
+			#hej
