@@ -16,9 +16,11 @@ config/features=PackedStringArray("4.5", "Mobile")
 
 [display]
 
-window/size/viewport_width=1536
-window/size/viewport_height=1152
-window/stretch/scale=1.5
+window/size/viewport_width=2048
+window/size/viewport_height=1536
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/stretch/scale=2.0
 
 [dotnet]
 

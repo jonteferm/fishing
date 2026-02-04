@@ -1,11 +1,39 @@
-[gd_scene load_steps=13 format=3 uid="uid://cq3q0tpgx3x5s"]
+[gd_scene load_steps=17 format=3 uid="uid://cq3q0tpgx3x5s"]
 
 [ext_resource type="Script" uid="uid://bu8kxgpxfwb10" path="res://enemy_1.gd" id="1_ewymi"]
 [ext_resource type="Texture2D" uid="uid://bay011bficwh2" path="res://assets/sprites/BulletAtlas1.png" id="1_g51g3"]
 [ext_resource type="Script" uid="uid://brh2582wf3q1k" path="res://enemy.gd" id="1_jsi8p"]
-[ext_resource type="Script" uid="uid://bnnnpks2kdmvk" path="res://bullet_clock.gd" id="1_pa8dn"]
-[ext_resource type="Texture2D" uid="uid://b0u5c0ovt76vf" path="res://assets/sprites/Enemy1.png" id="2_pa8dn"]
-[ext_resource type="Script" uid="uid://bktn6lhp24838" path="res://bullet_anticlock.gd" id="4_8d1r1"]
+[ext_resource type="Script" uid="uid://sv2i42mipwjs" path="res://bullet.gd" id="1_pa8dn"]
+[ext_resource type="Texture2D" uid="uid://bml4dfsmrrgq3" path="res://assets/sprites/Enemy1Atlas.png" id="3_jsi8p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewymi"]
+atlas = ExtResource("3_jsi8p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o1f5"]
+atlas = ExtResource("3_jsi8p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi564"]
+atlas = ExtResource("3_jsi8p")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tnyew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewymi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o1f5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi564")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8d1r1"]
 radius = 32.0
@@ -39,6 +67,8 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jsi8p"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_hsp2q"]
 
 [node name="Enemy1" type="Node2D"]
@@ -47,29 +77,70 @@ script = ExtResource("1_ewymi")
 [node name="Enemy" type="CharacterBody2D" parent="."]
 script = ExtResource("1_jsi8p")
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-texture = ExtResource("2_pa8dn")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+sprite_frames = SubResource("SpriteFrames_tnyew")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource("CircleShape2D_8d1r1")
+disabled = true
 
-[node name="Bullet1" type="CharacterBody2D" parent="."]
-position = Vector2(0, 1)
+[node name="BulletClock1" type="CharacterBody2D" parent="."]
+position = Vector2(-32, 24)
 script = ExtResource("1_pa8dn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bullet1"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BulletClock1"]
 sprite_frames = SubResource("SpriteFrames_7f4k7")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletClock1"]
+shape = SubResource("CircleShape2D_jsi8p")
+
+[node name="BulletClock3" type="CharacterBody2D" parent="."]
+script = ExtResource("1_pa8dn")
+orbit_radius = 140.0
+orbit_speed = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BulletClock3"]
+sprite_frames = SubResource("SpriteFrames_7f4k7")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletClock3"]
+shape = SubResource("CircleShape2D_jsi8p")
+
+[node name="BulletClock2" type="CharacterBody2D" parent="."]
+position = Vector2(-32, -24)
+script = ExtResource("1_pa8dn")
+orbit_speed = 1.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BulletClock2"]
+sprite_frames = SubResource("SpriteFrames_7f4k7")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletClock2"]
 shape = SubResource("CircleShape2D_hsp2q")
 
-[node name="Bullet2" type="CharacterBody2D" parent="."]
-script = ExtResource("4_8d1r1")
+[node name="BulletAnticlock1" type="CharacterBody2D" parent="."]
+position = Vector2(32, -24)
+script = ExtResource("1_pa8dn")
+orbit_speed = -1.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bullet2"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BulletAnticlock1"]
 sprite_frames = SubResource("SpriteFrames_7f4k7")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletAnticlock1"]
+shape = SubResource("CircleShape2D_hsp2q")
+
+[node name="BulletAnticlock2" type="CharacterBody2D" parent="."]
+position = Vector2(32, 24)
+collision_layer = 2
+script = ExtResource("1_pa8dn")
+orbit_speed = -1.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BulletAnticlock2"]
+sprite_frames = SubResource("SpriteFrames_7f4k7")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletAnticlock2"]
 shape = SubResource("CircleShape2D_hsp2q")

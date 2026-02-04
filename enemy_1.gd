@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed = 100
+var speed = 0
 var vel = Vector2()
 
 func _ready():

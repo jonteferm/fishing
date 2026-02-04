@@ -30,12 +30,41 @@ func update_movement(delta):
 	velocity = forward_vector * move_direction * speed
 	
 	# Apply the velocity (and handle collisions if using CharacterBody2D)
-	move_and_slide()
-	
-#func _unhandled_input(input_event: InputEvent) -> void:
-	#if input_event.is_echo():
-		#return
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		print("I collided with ", collision.get_collider().name)
+		
+		
+func _on_full_boat_box_body_entered(body: Node2D) -> void:
+	if(body.name.begins_with("Bullet")):
+		print("Player hit by bullet!")
+		
+func _on_hull_box_body_entered(body: Node2D) -> void:
+	if(body.name == "WaveLayer"):
+		print("Wave Enter")
+		speed -= 150
 
-	#if input_event is InputEventMouseButton and input_event.is_pressed():
-		#if input_event.button_index == MOUSE_BUTTON_LEFT:
-			#hej
+func _on_hull_box_body_exited(body: Node2D) -> void:
+	if(body.name == "WaveLayer"):
+		print("Wave Exit")
+		speed = 200
+func _unhandled_input(input_event: InputEvent) -> void:
+	if input_event.is_echo():
+		return
+
+	if input_event is InputEventMouseButton and input_event.is_pressed():
+		if input_event.button_index == MOUSE_BUTTON_LEFT:
+			var line : Line2D = get_node("Line2D")
+			if(line.visible):
+				line.remove_point(1)
+			line.add_point(get_local_mouse_position())
+			line.visible = true
+			
+		if input_event.button_index == MOUSE_BUTTON_RIGHT:
+			var line : Line2D = get_node("Line2D")
+			if(line.visible):
+				line.remove_point(1)
+				line.visible = false
+			
+			
+			
